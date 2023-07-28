@@ -19,7 +19,8 @@ total_hits = count50 + count100 + count300
 max_hits = total_hits + misscount
 raw_accuracy = ( ( 50 * count50 + 100 * count100 + 300 * count300 ) / ( 300 * (count50 + count100 + count300 + misscount) ) ) * 100
 accuracy = round(raw_accuracy, 2)
-beatmap_hash = r.beatmap_hash
+beatmaphash = r.beatmap_hash
+replayid = r.replay_id
 
 
 parser = argparse.ArgumentParser(description='osu! replay parser')
@@ -36,7 +37,9 @@ parser.add_argument('-j', '--maxcombo', action='store_true', help='Max combo')
 parser.add_argument('-k', '--mods', action='store_true', help='Mods')
 parser.add_argument('-l', '--time', action='store_true', help='Time')
 parser.add_argument('-m', '--accuracy', action='store_true', help='Accuracy')
-parser.add_argument('-n', '--beatmap_hash', action='store_true', help='Beatmap hash')
+parser.add_argument('-n', '--beatmaphash', action='store_true', help='Beatmap hash')
+parser.add_argument('-o', '--replayid', action='store_true', help='Replay ID')
+parser.add_argument('-p', '--rawaccuracy', action='store_true', help='Raw accuracy')
 
 args = parser.parse_args()
 
@@ -52,7 +55,8 @@ maxcombo_value = args.maxcombo
 mods_value = args.mods
 time_value = args.time
 accuracy_value = args.accuracy
-beatmap_hash_value = args.beatmap_hash
+beatmap_hash_value = args.beatmaphash
+raw_accuracy_value = args.rawaccuracy
 
 
 if mode_value :
@@ -80,4 +84,6 @@ if time_value:
 if accuracy_value:
     print(str(accuracy) + "%")
 if beatmap_hash_value:
-    print(str(beatmap_hash))
+    print(str(beatmaphash))
+if raw_accuracy_value:
+    print(str(raw_accuracy))
