@@ -78,7 +78,8 @@ if score_value:
 if maxcombo_value:
     print(int(maxcombo))
 if mods_value:
-    print(str(mods))
+    if mods != 0:
+        print(str(mods))
 if time_value:
     print(str(time))
 if accuracy_value:
