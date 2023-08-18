@@ -2,7 +2,7 @@ from osrparse import  Replay, parse_replay_data
 import base64
 import lzma
 import argparse
-replay = Replay.from_path("replay.osr")
+replay = Replay.from_path("/home/runner/replay.osr")
 r = replay
 mode = r.mode
 user = r.username
