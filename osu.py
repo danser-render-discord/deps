@@ -1,6 +1,4 @@
 from osrparse import  Replay, parse_replay_data
-import base64
-import lzma
 import argparse
 replay = Replay.from_path("/home/runner/replay.osr")
 r = replay

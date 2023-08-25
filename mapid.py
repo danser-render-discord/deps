@@ -1,12 +1,15 @@
 import argparse
 import requests
-
+from osrparse import  Replay, parse_replay_data
+import argparse
+replay = Replay.from_path("/home/runner/replay.osr")
+r = replay
+hash=r.beatmap_hash
 parser = argparse.ArgumentParser(description='Retrieve beatmap ID from beatmap hash')
 parser.add_argument('api_key', help='osu! API key')
-parser.add_argument('beatmap_hash', help='beatmap hash')
 args = parser.parse_args()
 
-url = f'https://osu.ppy.sh/api/get_beatmaps?k={args.api_key}&h={args.beatmap_hash}'
+url = f'https://osu.ppy.sh/api/get_beatmaps?k={args.api_key}&h={hash}'
 response = requests.get(url)
 
 if response.status_code == 200:
