@@ -2,7 +2,7 @@ import argparse
 import requests
 from osrparse import  Replay, parse_replay_data
 import argparse
-replay = Replay.from_path("/home/runner/replay.osr")
+replay = Replay.from_path("/home/yoav/Documents/GitHub/iono/deps/replay.osr")
 r = replay
 hash=r.beatmap_hash
 parser = argparse.ArgumentParser(description='Retrieve beatmap ID from beatmap hash')
@@ -15,8 +15,8 @@ response = requests.get(url)
 if response.status_code == 200:
     data = response.json()
     if data:
-        beatmap_id = data[0]['beatmap_id']
-        print(beatmap_id)
+        beatmapset_id = data[0]['beatmapset_id']
+        print(beatmapset_id)
     else:
         print(f'No beatmaps found for hash {args.beatmap_hash}')
 else:
