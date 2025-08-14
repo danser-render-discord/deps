@@ -1,4 +1,4 @@
 osrparse
 requests
 selenium_firefox
-selenium < 4
+selenium <5
